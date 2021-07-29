@@ -411,7 +411,7 @@
     "inputs": [
       {
         "internalType": "contract IERC20",
-        "name": "_panther",
+        "name": "_gbone",
         "type": "address"
       },
       {
@@ -580,7 +580,7 @@
   },
   {
     "inputs": [],
-    "name": "panther",
+    "name": "gbone",
     "outputs": [
       {
         "internalType": "contract IERC20",

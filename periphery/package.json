@@ -1,0 +1,39 @@
+{
+  "name": "shibaswap-peripheral",
+  "version": "1.1.0-beta.0",
+  "description": "🎚 Peripheral smart contracts for interacting with pancake",
+  "engines": {
+    "node": ">=10"
+  },
+  "homepage": "https://pancakeswap.finance",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pancakeswap/pancake-swap-periphery.git"
+  },
+  "files": [
+    "build",
+    "contracts"
+  ],
+  "dependencies": {
+    "@pancakeswap-libs/pancake-swap-core": "^0.1.0",
+    "@truffle/hdwallet-provider": "^1.4.0",
+    "@uniswap/lib": "1.1.1",
+    "@uniswap/v2-core": "^1.0.1",
+    "dotenv": "^9.0.2",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "truffle-plugin-verify": "^0.4.0"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "copy-v1-artifacts": "ncp ./buildV1 ./build",
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "postcompile": "yarn copy-v1-artifacts",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test"
+  },
+  "license": "GPL-3.0-or-later"
+}

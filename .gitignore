@@ -4,6 +4,7 @@
 /core/node_modules
 /farm/node_modules
 /periphery/node_modules
+/lottery/node_modules
 /.pnp
 .pnp.js
 

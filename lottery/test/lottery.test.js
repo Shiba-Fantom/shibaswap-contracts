@@ -17,7 +17,7 @@ contract('Lottery', (accounts) => {
         dev=accounts[4];
         minter=accounts[0];
 
-        this.cake = await MockBEP20.deployed();
+        this.gbone = await MockBEP20.deployed();
         this.nft = await LotteryNFT.deployed();
         this.lottery = await Lottery.deployed();
 
@@ -29,9 +29,9 @@ contract('Lottery', (accounts) => {
         this.lotteryProxy = new web3.eth.Contract(lotteryABI, this.lotteryProxyAddress);
 
         await this.nft.transferOwnership(this.lotteryProxyAddress, {from: minter});
-        await this.cake.transfer(bob, '2000', { from: minter });
-        await this.cake.transfer(alice, '2000', { from: minter });
-        await this.cake.transfer(carol, '2000', { from: minter });
+        await this.gbone.transfer(bob, '2000', { from: minter });
+        await this.gbone.transfer(alice, '2000', { from: minter });
+        await this.gbone.transfer(carol, '2000', { from: minter });
     });
 
     it('test', async () => {
@@ -40,8 +40,8 @@ contract('Lottery', (accounts) => {
         bob=accounts[2];
         carol=accounts[3];
         dev=accounts[4];
-        await this.cake.approve(this.lotteryProxyAddress, '1000', { from: alice });
-        await this.cake.approve(this.lotteryProxyAddress, '1000', { from: bob });
+        await this.gbone.approve(this.lotteryProxyAddress, '1000', { from: alice });
+        await this.gbone.approve(this.lotteryProxyAddress, '1000', { from: bob });
 
         await this.lotteryProxy.methods.buy('50', [1,3,4,3]).send({from: alice, gas: 4700000});
         await this.lotteryProxy.methods.buy('100', [1,2,3,4]).send({from: alice, gas: 4700000 });
@@ -51,7 +51,7 @@ contract('Lottery', (accounts) => {
         await this.lotteryProxy.methods.buy('50', [1,3,4,3]).send({from: bob, gas: 4700000 });
         await this.lotteryProxy.methods.multiBuy('1', [[1,3,4,3],[1,3,4,3],[1,2,2,3],[1,3,4,3],[1,3,4,3],[1,2,2,3],[1,3,4,3],[1,3,4,3],[1,2,2,3],[1,3,4,3],[1,3,4,3],[1,2,2,3],[1,3,4,3],[1,3,4,3],[1,2,2,3],[1,3,4,3],[1,3,4,3],[1,2,2,3]]).send({from: bob, gas: 8000000 });
 
-        assert.equal((await this.cake.balanceOf(this.lotteryProxyAddress)).toString(), '418');
+        assert.equal((await this.gbone.balanceOf(this.lotteryProxyAddress)).toString(), '418');
         assert.equal((await this.lotteryProxy.methods.totalAddresses().call()).toString(), '2');
         assert.equal((await this.nft.tokenOfOwnerByIndex(bob, 1)).toString(), '5');
         assert.equal((await this.nft.tokenOfOwnerByIndex(alice, 0)).toString(), '1');
@@ -80,7 +80,7 @@ contract('Lottery', (accounts) => {
 
 
         // console.log('reward:', (await this.lottery.getRewardView(tikeckIndex, {from: alice})).toString())
-        // console.log('cake2:', (await this.cake.balanceOf(alice, {from: alice})).toString());
+        // console.log('gbone2:', (await this.gbone.balanceOf(alice, {from: alice})).toString());
         // console.log((await this.nft.getClaimStatus(tikeckIndex, {from: alice})));
 
         // await expectRevert(this.lottery.claimReward(tikeckIndex, {from: alice}), 'claimed');

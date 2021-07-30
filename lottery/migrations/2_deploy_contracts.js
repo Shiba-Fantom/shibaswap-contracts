@@ -8,7 +8,7 @@ const web3 = new Web3(new Web3.providers.HttpProvider('https://data-seed-prebsc-
 
 module.exports = async function(deployer) {
     await deployer.deploy(LotteryNFT);
-    const cake = await MockBEP20.at('0x43acC9A5E94905c7D31415EB410F3E666e5F1e9A');
+    const gbone = await MockBEP20.at('0x43acC9A5E94905c7D31415EB410F3E666e5F1e9A');
     await deployer.deploy(Lottery);
 
     proxyAdmin= '0x0F9399FC81DaC77908A2Dde54Bb87Ee2D17a3373';
@@ -19,7 +19,7 @@ module.exports = async function(deployer) {
         "inputs": [
             {
                 "internalType": "contract IERC20",
-                "name": "_cake",
+                "name": "_gbone",
                 "type": "address"
             },
             {
@@ -47,7 +47,7 @@ module.exports = async function(deployer) {
         "outputs": [],
         "stateMutability": "nonpayable",
         "type": "function"
-    }, [cake.address, LotteryNFT.address, '5', lotteryOwner, lotteryAdmin]);
+    }, [gbone.address, LotteryNFT.address, '5', lotteryOwner, lotteryAdmin]);
 
     await deployer.deploy(LotteryUpgradeProxy, Lottery.address, proxyAdmin, abiEncodeData);
 

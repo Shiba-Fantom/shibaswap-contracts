@@ -1,3 +1,4 @@
+//SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 pragma experimental ABIEncoderV2;
 
@@ -407,14 +408,14 @@ contract Lottery is LotteryOwnable, Initializable {
         for (uint256 i = 0; i < 10; i++) {
             getTotalRewards(issueIndex);
         }
-        uint256 gasleft = gasleft();
+        uint256 gasLeft = gasleft();
 
         // 1
         _structHash = keccak256(
             abi.encode(
                 _blockhash,
                 totalAddresses,
-                gasleft,
+                gasLeft,
                 _externalRandomNumber
             )
         );
@@ -426,7 +427,7 @@ contract Lottery is LotteryOwnable, Initializable {
 
         // 2
         _structHash = keccak256(
-            abi.encode(_blockhash, totalAmount, gasleft, _externalRandomNumber)
+            abi.encode(_blockhash, totalAmount, gasLeft, _externalRandomNumber)
         );
         _randomNumber = uint256(_structHash);
         assembly {
@@ -439,7 +440,7 @@ contract Lottery is LotteryOwnable, Initializable {
             abi.encode(
                 _blockhash,
                 lastTimestamp,
-                gasleft,
+                gasLeft,
                 _externalRandomNumber
             )
         );
@@ -451,7 +452,7 @@ contract Lottery is LotteryOwnable, Initializable {
 
         // 4
         _structHash = keccak256(
-            abi.encode(_blockhash, gasleft, _externalRandomNumber)
+            abi.encode(_blockhash, gasLeft, _externalRandomNumber)
         );
         _randomNumber = uint256(_structHash);
         assembly {

@@ -23,9 +23,9 @@ abstract contract BaseStrategy is Ownable, ReentrancyGuard, Pausable {
     address public uniRouterAddress;
     address public constant usdcAddress = 0x04068DA6C83AFCFA0e13ba15A6696662335D5B75;
     address public constant gboneAddress = 0x004B122eb5632077abdD2C38e8d9392348d5cA15;
-    address public constant rewardAddress = 0x3Bdb904fe89B4c35020870E4B7E84a7f9f7AdAF8; // should update
-    address public constant withdrawFeeAddress = 0x5c02A5c0285a5982a5B48A02B2e1cFB163430cdc;
-    address public constant feeAddress = 0x5c02A5c0285a5982a5B48A02B2e1cFB163430cdc;
+    address public constant rewardAddress = 0x171BB6a358B7E769B1eB3E7b2Aab779423CBeee0; // should update
+    address public withdrawFeeAddress = 0x5c02A5c0285a5982a5B48A02B2e1cFB163430cdc;
+    address public feeAddress = 0x5c02A5c0285a5982a5B48A02B2e1cFB163430cdc;
     address public vaultChefAddress;
     address public govAddress;
 
@@ -35,7 +35,7 @@ abstract contract BaseStrategy is Ownable, ReentrancyGuard, Pausable {
     address public constant buyBackAddress = 0x000000000000000000000000000000000000dEaD;
     uint256 public controllerFee = 50;
     uint256 public rewardRate = 0;
-    uint256 public buyBackRate = 450;
+    uint256 public buyBackRate = 0;
     uint256 public constant feeMaxTotal = 1000;
     uint256 public constant feeMax = 10000; // 100 = 1%
 
@@ -60,7 +60,9 @@ abstract contract BaseStrategy is Ownable, ReentrancyGuard, Pausable {
         uint256 _buyBackRate,
         uint256 _withdrawFeeFactor,
         uint256 _slippageFactor,
-        address _uniRouterAddress
+        address _uniRouterAddress,
+        address _withdrawFeeAddress,
+        address _feeAddress
     );
     
     modifier onlyGov() {
@@ -235,18 +237,23 @@ abstract contract BaseStrategy is Ownable, ReentrancyGuard, Pausable {
         uint256 _buyBackRate,
         uint256 _withdrawFeeFactor,
         uint256 _slippageFactor,
-        address _uniRouterAddress
+        address _uniRouterAddress,
+        address _withdrawFeeAddress,
+        address _feeAddress
     ) external onlyGov {
         require(_controllerFee.add(_rewardRate).add(_buyBackRate) <= feeMaxTotal, "Max fee of 10%");
         require(_withdrawFeeFactor >= withdrawFeeFactorLL, "_withdrawFeeFactor too low");
         require(_withdrawFeeFactor <= withdrawFeeFactorMax, "_withdrawFeeFactor too high");
         require(_slippageFactor <= slippageFactorUL, "_slippageFactor too high");
+        require(_withdrawFeeAddress != address(0x0) && _feeAddress != address(0x0), "Invalid address");
         controllerFee = _controllerFee;
         rewardRate = _rewardRate;
         buyBackRate = _buyBackRate;
         withdrawFeeFactor = _withdrawFeeFactor;
         slippageFactor = _slippageFactor;
         uniRouterAddress = _uniRouterAddress;
+        withdrawFeeAddress = _withdrawFeeAddress;
+        feeAddress = _feeAddress;
 
         emit SetSettings(
             _controllerFee,
@@ -254,7 +261,9 @@ abstract contract BaseStrategy is Ownable, ReentrancyGuard, Pausable {
             _buyBackRate,
             _withdrawFeeFactor,
             _slippageFactor,
-            _uniRouterAddress
+            _uniRouterAddress,
+            _withdrawFeeAddress,
+            _feeAddress
         );
     }
     

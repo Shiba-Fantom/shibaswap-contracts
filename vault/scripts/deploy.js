@@ -68,19 +68,19 @@ async function main () {
   }
 
   if(config.strategyMasterchef) {
-    const masterChefAddress = '0x9083EA3756BDE6Ee6f27a6e996806FBD37F6F093'
-    const uniRouterAddress = '0x16327e3fbdaca3bcf7e38f5af2599d2ddc33ae52'
+    const masterChefAddress = '0x2b2929E785374c651a81A63878Ab22742656DcDd'
+    const uniRouterAddress = '0xF491e7B69E4244ad4002BC14e878a34207E38c29'
 
     const pid = 0;
     const wantAddress = '0x30748322B6E34545DBe0788C421886AEB5297789'
-    const earnedAddress = '0x5Cc61A78F164885776AA610fb0FE1257df78E59B'
+    const earnedAddress = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE'
 
-    const _earnedToWethPath = ['0x5Cc61A78F164885776AA610fb0FE1257df78E59B', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83']
-    const _earnedToUsdcPath = ['0x5Cc61A78F164885776AA610fb0FE1257df78E59B', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75']
-    const _earnedToGbonePath = ['0x5Cc61A78F164885776AA610fb0FE1257df78E59B', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', '0x004B122eb5632077abdD2C38e8d9392348d5cA15']
-    const _earnedToToken0Path = ['0x5Cc61A78F164885776AA610fb0FE1257df78E59B', '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83']
+    const _earnedToWethPath = ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83']
+    const _earnedToUsdcPath = ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75']
+    const _earnedToGbonePath = ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83', '0x04068DA6C83AFCFA0e13ba15A6696662335D5B75', '0x004B122eb5632077abdD2C38e8d9392348d5cA15']
+    const _earnedToToken0Path = ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', '0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83']
     const _earnedToToken1Path = []
-    const _token0ToEarnedPath = ['0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', '0x5Cc61A78F164885776AA610fb0FE1257df78E59B']
+    const _token0ToEarnedPath = ['0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83', '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE']
     const _token1ToEarnedPath = []
 
     const StrategyMasterchef = await await ethers.getContractFactory('StrategyMasterchef', {

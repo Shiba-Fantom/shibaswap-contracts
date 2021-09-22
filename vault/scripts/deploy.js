@@ -71,8 +71,8 @@ async function main () {
     const masterChefAddress = '0x2b2929E785374c651a81A63878Ab22742656DcDd'
     const uniRouterAddress = '0xF491e7B69E4244ad4002BC14e878a34207E38c29'
 
-    const pid = 0;
-    const wantAddress = '0x30748322B6E34545DBe0788C421886AEB5297789'
+    const pid = 2;
+    const wantAddress = '0xec7178f4c41f346b2721907f5cf7628e388a7a58'
     const earnedAddress = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE'
 
     const _earnedToWethPath = ['0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE', '0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83']

@@ -22,6 +22,7 @@ contract VaultChef is Ownable, ReentrancyGuard, Operators {
     struct PoolInfo {
         IERC20 want; // Address of the want token.
         address strat; // Strategy address that will auto compound want tokens
+        bool status;
     }
 
     PoolInfo[] public poolInfo; // Info of each pool.
@@ -29,6 +30,7 @@ contract VaultChef is Ownable, ReentrancyGuard, Operators {
     mapping(address => bool) private strats;
 
     event AddPool(address indexed strat);
+    event PoolUpdated(uint256 pid, address strat, bool status);
     event Deposit(address indexed user, uint256 indexed pid, uint256 amount);
     event Withdraw(address indexed user, uint256 indexed pid, uint256 amount);
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
@@ -45,12 +47,22 @@ contract VaultChef is Ownable, ReentrancyGuard, Operators {
         poolInfo.push(
             PoolInfo({
                 want: IERC20(IStrategy(_strat).wantAddress()),
-                strat: _strat
+                strat: _strat,
+                status: true
             })
         );
         strats[_strat] = true;
         resetSingleAllowance(poolInfo.length.sub(1));
         emit AddPool(_strat);
+    }
+
+    function updatePool(uint256 _pid, address _strat, bool _status) external onlyOnwer nonReentrant {
+        PoolInfo memory pool = poolInfo[_pid];
+
+        pool.strat = _strat;
+        pool.status = _status;
+
+        emit PoolUpdated(_pid, _strat, _status);
     }
 
     // View function to see staked Want tokens on frontend.

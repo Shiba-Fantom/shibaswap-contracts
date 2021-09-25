@@ -56,7 +56,7 @@ contract VaultChef is Ownable, ReentrancyGuard, Operators {
         emit AddPool(_strat);
     }
 
-    function updatePool(uint256 _pid, address _strat, bool _status) external onlyOnwer nonReentrant {
+    function updatePool(uint256 _pid, address _strat, bool _status) external onlyOwner nonReentrant {
         PoolInfo memory pool = poolInfo[_pid];
 
         pool.strat = _strat;

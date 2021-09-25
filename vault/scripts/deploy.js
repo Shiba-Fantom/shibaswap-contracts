@@ -71,7 +71,7 @@ async function main () {
     const masterChefAddress = '0x2b2929E785374c651a81A63878Ab22742656DcDd'
     const uniRouterAddress = '0xF491e7B69E4244ad4002BC14e878a34207E38c29'
 
-    const pid = 2;
+    const pid = 0;  // this is for pool of masterchef
     const wantAddress = '0xec7178f4c41f346b2721907f5cf7628e388a7a58'
     const earnedAddress = '0x841FAD6EAe12c286d1Fd18d1d525DFfA75C7EFFE'
 

@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "migrate": "truffle migrate --network ftmtest --reset",
-    "compile": "truffle compile --network ftmtest",
+    "migrate": "truffle migrate --network eth-mainet--reset",
+    "compile": "truffle compile --network eth-mainet",
     "test": "npx builder test",
     "coverage": "npx builder coverage"
   },

@@ -20,7 +20,7 @@
     "truffle": "^5.1.58",
     "truffle-flattener": "^1.4.4"
   },
-  https://shibaswap.com/
+  
  {
     "@nomiclabs/buidler": "^1.4.7",
     "@nomiclabs/buidler-ethers": "^2.0.0",

@@ -1,0 +1,17 @@
+name: Preview docs on Netlify
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - docs/**
+
+jobs:
+  preview:
+    uses: apollographql/docs/.github/workflows/preview.yml@main
+    secrets:
+      NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      
+      https://github.com/SHIBA-st-x/shibaswap-contracts/new/main?filename=.github%2Fworkflows%2Fdocs-preview.yml&workflow_template=workflow-templates%2Fdocs-preview#:~:text=Documentation-,Getting%20started%20with%20a,syntax%20for%20GitHub%20Actions.%22,-New%20File%20at

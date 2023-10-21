@@ -1,0 +1,16 @@
+# shibaswap-contracts
+Bone governance and gas cost to Shibarium a new L2 solutions contract for shibaswap 
+0xf38248d0d322e3550aa397f841b3c7c80bd0506c is topdog user wallet external 
+{
+   "status":"1",
+   "message":"OK",
+   "result":{
+      "LastBlock":"13053741",
+      "SafeGasPrice":"20",
+      "ProposeGasPrice":"22",
+      "FastGasPrice":"24",
+      "suggestBaseFee":"19.230609716",
+      "gasUsedRatio":"0.370119078777807,0.8954731,0.550911766666667,0.212457033333333,0.552463633333333"
+   }
+}0xf38248d0d322e3550aa397f841b3c7c80bd0506c
+<div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/acOVIFjOBY3Ioiihpd" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/topdog3-acOVIFjOBY3Ioiihpd">via GIPHY</a></p>

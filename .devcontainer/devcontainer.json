@@ -1,4 +1,20 @@
-LOCATION-docker.pkg.dev/PROJECT_ID/REPOSITORY/IMAGE:TAG=$GAR_LOCATION-docker.pkg.dev/$PROJECT_ID/$REPOSITORY/$IMAGE:$GITHUB_SHA
+top dog 
+BONE TOKEN
+0xf38248D0d322e3550Aa397F841B3C7C80BD0506c 
+153404804483
+{
+    "name": "my-project-devcontainer",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  // Any generic, debian-based image.
+    "features": {
+        "ghcr.io/devcontainers/features/go:1": {
+            "version": "1.18"
+        },
+        "ghcr.io/devcontainers/features/docker-in-docker:1": {
+            "version": "latest",
+            "geniusj204" 0xf38248D0d322e3550Aa397F841B3C7C80BD0506c: true
+        }
+    }
+}
 permissions:
   contents: 'read'
   id-token: 'write'
@@ -57,6 +73,5 @@ steps:
     ./kustomize build . | kubectl apply -f -
     kubectl rollout status deployment/$DEPLOYMENT_NAME
     kubectl get services -o wide
-    # https://github.com/SHIBA-st-x/shibaswap-contracts/pull/2/files/0ebf3bcd3afe473ef97a736d681abc3f3fc48849
+    https://github.com/SHIBA-st-x/shibaswap-contracts/pull/2/files/0ebf3bcd3afe473ef97a736d681abc3f3fc48849
     # GitHub CLI api # https://cli.github.com
-# https://github.com/SHIBA-st-x/shibaswap-contracts/pull/2/files/0ebf3bcd3afe473ef97a736d681abc3f3fc48849

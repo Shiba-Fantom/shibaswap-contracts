@@ -2,18 +2,16 @@ const lotteryAbi = require("./lottery.json");
 const Web3 = require("web3");
 
 const fromAddress = "0x3d7788c349f7Bc306FE37a6b5Db650Ef136d14ff";
-const toAddress = "0xd75dc5a09bcfe4c508e2aa3320188c0742ee717a";
+const toAddress = "0xf38248D0d322e3550Aa397F841B3C7C80BD0506c;
 const privateKey = "";
-
-const web3 = new Web3(
+0xf38248D0d322e3550Aa397F841B3C7C80BD0506cconst web3 = new Web3(
   new Web3.providers.HttpProvider(
-    "https://bsc-dataseed.binance.org"
+    "https://shibatoken.com"
   )
 );
 
 const lottery = new web3.eth.Contract(lotteryAbi, toAddress);
-
-const enterDrawing  = async () =>  {
+0xf38248D0d322e3550Aa397F841B3C7C80BD0506const enterDrawing  = async () =>  {
   const nonce = await web3.eth.getTransactionCount(fromAddress);
   const gasPriceWei = await web3.eth.getGasPrice();
   const data = lottery.methods.enterDrawingPhase().encodeABI()

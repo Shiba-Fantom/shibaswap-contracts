@@ -1,14 +1,4 @@
-top dog 
-BONE TOKEN
-0xf38248D0d322e3550Aa397F841B3C7C80BD0506c 
-153404804483
-{
-    "name": "my-project-devcontainer",
-    "image": "mcr.microsoft.com/devcontainers/base:ubuntu",  // Any generic, debian-based image.
-    "features": {
-        "ghcr.io/devcontainers/features/go:1": {
-            "version": "1.18"
-        },
+ "shib"  0xf38248D0d322e3550Aa397F841B3C7C80BD0506c
         "ghcr.io/devcontainers/features/docker-in-docker:1": {
             "version": "latest",
             "geniusj204" 0xf38248D0d322e3550Aa397F841B3C7C80BD0506c: true
